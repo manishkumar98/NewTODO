@@ -16,19 +16,16 @@ class App extends React.Component {
   }
 
   updateInput(key, value) {
-    // update react state
     this.setState({ [key]: value });
   }
 
   addItem() {
-    // create a new item with unique id
     const newItem = {
       id: 1 + Math.random(),
-      value: this.state.newItem.slice(),
+      value: this.state.newItem,
       type: this.state.newItemType
     };
 
-    // copy current list of items
     const list = [...this.state.list];
     const list1 = [...this.state.list1];
     const list2 = [...this.state.list2];
@@ -36,10 +33,9 @@ class App extends React.Component {
     if (newItem.type === "personal") list1.push(newItem);
     if (newItem.type === "office") list2.push(newItem);
     if (newItem.type === "shopping") list3.push(newItem);
-    // add the new item to the list
+
     list.push(newItem);
 
-    // update state with new list, reset the new item input
     this.setState({
       list,
       list1,
@@ -50,33 +46,29 @@ class App extends React.Component {
   }
 
   deleteItem(id) {
-    // copy current list of items
     const list = [...this.state.list];
-    // filter out the item being deleted
+
     const updatedList = list.filter((item) => item.id !== id);
 
     this.setState({ list: updatedList });
   }
   deleteItem1(id) {
-    // copy current list of items
     const list1 = [...this.state.list1];
-    // filter out the item being deleted
+
     const updatedList = list1.filter((item) => item.id !== id);
 
     this.setState({ list1: updatedList });
   }
   deleteItem2(id) {
-    // copy current list of items
     const list2 = [...this.state.list];
-    // filter out the item being deleted
+
     const updatedList = list2.filter((item) => item.id !== id);
 
     this.setState({ list2: updatedList });
   }
   deleteItem3(id) {
-    // copy current list of items
     const list3 = [...this.state.list];
-    // filter out the item being deleted
+
     const updatedList = list3.filter((item) => item.id !== id);
 
     this.setState({ list3: updatedList });
